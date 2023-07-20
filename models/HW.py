@@ -11,6 +11,17 @@ def predict(test_seq: pd.Series, params):
     return predicted
 
 
+def train(train_seq, params):
+    model = HW(train, **params).fit()
+
+    return model
+
+
+def test(model, test_seq, params):
+    return model.predict(0, len(test_seq)-1).to_numpy()
+
+
+
 def train_and_predict(train_seq, test_seq, params):
     predicted = predict(test_seq, params)
 
